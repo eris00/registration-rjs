@@ -21,32 +21,6 @@ function App() {
     setFormErrors(validate(formValues));
     setIsSubmit(true);
 
-    // fetch('https://jsonblob.com/api/jsonBlob/975364699952791552', {
-    // method: 'POST',
-    // headers: { 'Content-Type': 'application/json' },
-    // body: JSON.stringify({
-    //   userName: 'eris00',
-    //   firstName: 'eris',
-    //   lastName: 'sutkovic',
-    //   email: 'eris@eris.com',
-    //   pass: 'MasterEris123!'
-    // }),
-    // })
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   console.log(data);
-    // })
-    // .catch((err) => console.log(err));
-
-    // axios.get('https://jsonblob.com/api/975451361064009728')
-    // .then(res => {
-    //   console.log(res);
-    // })
-    // .catch(error => {
-    //   console.log(error);
-    // })
-
-
     axios({
       method: 'post',
       url: 'https://jsonblob.com/api/975451361064009728',

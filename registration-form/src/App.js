@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import './App.css';
-import axios from "axios";
+// import axios from "axios";
+import axiosInstance from "./services/api";
 
 function App() {
 
@@ -9,11 +10,17 @@ function App() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false); 
 
+  const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
+  const [users, setUsers] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({...formValues, [name]: value });
-    // console.log(formValues);
   };
 
   const handleSubmit = (e) => {
@@ -21,32 +28,28 @@ function App() {
     setFormErrors(validate(formValues));
     setIsSubmit(true);
 
-    axios({
-      method: 'post',
-      url: 'https://jsonblob.com/api/975451361064009728',
-      Accept: 'application/json',
-      responseType: 'blob',
-      data: {
-        userName: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        pass: '',
-      },
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+    addUser({userName, firstName, lastName, email, pass})
+    setUserName();
+    setFirstName();
+    setlastName();
+    setEmail();
+    setPass();
+    
+  };
+
+  const addUser = async user => {
+    const newUser = { ...user, done: false };
+    try {
+      const response = await axiosInstance.post("/todos", newUser);
+      setUsers(oldUsers => [...oldUsers, response.data]);
+    } catch (e) {
+      console.log(e);
+    }
 
   }
 
   useEffect(() => {
-    console.log(formErrors);
     if(Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
     }
   }, [formErrors]);
 
@@ -108,7 +111,7 @@ function App() {
             <div className="container">
               <div className="element">
                 <label>User Name</label>
-                <input type="text" name="userName" placeholder="user name" value={ formValues.userName} onChange={handleChange}></input>
+                <input type="text" name="userName" placeholder="user name" value={ formValues.userName } onChange={handleChange}></input>
               </div>
               <p>{ formErrors.userName }</p>
               <div className="element">

@@ -1,25 +1,44 @@
 {
   "todos": [
     {
-      "title": "test -1",
-      "description": "test -2",
-      "author": "Janko",
+      "userName": "eris001",
+      "firstName": "Sutkovic",
+      "lastName": "Sutkovic",
+      "email": "erissutkovic00@gmail.com",
+      "pass": "Erismaster1!",
+      "confirmPass": "Erismaster1!",
       "done": false,
-      "id": 2
+      "id": 20
     },
     {
-      "title": " 1 provjera",
-      "description": "provjera",
-      "author": "Marko",
-      "done": true,
-      "id": 4
+      "userName": "eris02",
+      "firstName": "Eris1",
+      "lastName": "Sutkovic1",
+      "email": "erissutkovic11@gmail.com",
+      "pass": "Erissss1!",
+      "confirmPass": "Erissss1!",
+      "done": false,
+      "id": 21
     },
     {
-      "title": "3 provjera",
-      "description": "provjera",
-      "author": "Marko",
-      "done": true,
-      "id": 6
+      "userName": "testFalseu",
+      "firstName": "testFalsef",
+      "lastName": "testFalsel",
+      "email": "testf@gmail.com",
+      "pass": "Testfalse@!",
+      "confirmPass": "Testfalse2!",
+      "done": false,
+      "id": 22
+    },
+    {
+      "userName": "testingprp1",
+      "firstName": "testingprp1",
+      "lastName": "testingprp1",
+      "email": "testingprp1@testingprp1.com",
+      "pass": "Testingprp1!",
+      "confirmPass": "Testingprp1!",
+      "done": false,
+      "id": 23
     },
     {
       "userName": "",
@@ -27,111 +46,49 @@
       "lastName": "",
       "email": "",
       "pass": "",
+      "confirmPass": "",
       "done": false,
-      "id": 7
+      "id": 24
     },
     {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
+      "userName": "eris00tts",
+      "firstName": "Erist",
+      "lastName": "Sutkovic",
+      "email": "erissutkovic00@gmail.com",
+      "pass": "Erissutkovic2!",
+      "confirmPass": "Erissutkovic2!",
       "done": false,
-      "id": 8
+      "id": 25
     },
     {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
+      "userName": "eris00tts",
+      "firstName": "Erist",
+      "lastName": "Sutkovic",
+      "email": "erissutkovic00@gmail.com",
+      "pass": "Erissutkovic2!",
+      "confirmPass": "",
       "done": false,
-      "id": 9
+      "id": 26
     },
     {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
+      "userName": "isworked",
+      "firstName": "isworked",
+      "lastName": "isworked",
+      "email": "isworked@df.fds",
+      "pass": "Isworked2!",
+      "confirmPass": "Isworked2!",
       "done": false,
-      "id": 10
+      "id": 27
     },
     {
+      "userName": "ssddsdas",
+      "firstName": "dsdasdsa",
+      "lastName": "dasds",
+      "email": "erissutkovic00@gmail.com",
+      "pass": "Masterwork2!",
+      "confirmPass": "Masterwork2!",
       "done": false,
-      "id": 11
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 12
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 13
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 14
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 15
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 16
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 17
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 18
-    },
-    {
-      "userName": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "pass": "",
-      "done": false,
-      "id": 19
+      "id": 28
     }
   ]
 }

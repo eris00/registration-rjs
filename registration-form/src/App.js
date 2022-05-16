@@ -4,7 +4,7 @@ import "./App.css";
 import axiosInstance from "./services/api";
 function App() {
   const initialValues = {
-    userName: "stevo",
+    userName: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -23,9 +23,61 @@ function App() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
+
   };
+
+  const validate = (values) => {
+    const errors = {};
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const regexPwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/;
+
+    if (!values.userName) {
+      errors.userName = "username is required!";
+
+    } else if (values.userName.length < 6) {
+      errors.userName = "username must contain at least six characters!";
+
+    } else if (values.userName.length > 12) {
+      errors.userName = "username cannot contain more than twelve characters!";
+
+    }
+    if (!values.firstName) {
+      errors.firstName = "First Name is required!";
+
+    }
+    if (!values.lastName) {
+      errors.lastName = "Last Name is required!";
+
+    }
+    if (!values.email) {
+
+
+    } else if (!regexEmail.test(values.email)) {
+      errors.email = "Invalid format for E-mail!";
+
+    }
+    if (!values.pass) {
+      errors.pass = "Password is required!";
+
+    } else if (values.pass.length < 8) {
+      errors.pass = "password must contain at least eight characters!!";
+
+    } else if (!regexPwd.test(values.pass)) {
+      errors.pass = "Password need to contain minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
+
+    }
+    if (!values.confirmPass) {
+      errors.confirmPass = "Confirm your password!";
+
+    } else if (!(values.confirmPass === values.pass)) {
+      errors.confirmPass = "Passwords must match!";
+
+    }
+    return errors;
+  };
+
   const handleSubmit = (e) => {
+
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
@@ -42,6 +94,7 @@ function App() {
     setlastName();
     setEmail();
     setPass();
+
   };
   const addUser = async (
     userName,
@@ -60,57 +113,21 @@ function App() {
       confirmPass,
       done: false,
     };
+
     try {
-      console.log(newUser);
       const response = await axiosInstance.post("/todos", newUser);
       setUsers((oldUsers) => [...oldUsers, response.data]);
-      console.log(response);
     } catch (e) {
       console.log(e);
     }
   };
+
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
     }
   }, [formErrors]);
-  const validate = (values) => {
-    const errors = {};
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    const regexPwd =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/;
-    if (!values.userName) {
-      errors.userName = "username is required!";
-    } else if (values.userName.length < 6) {
-      errors.userName = "username must contain at least six characters!";
-    } else if (values.userName.length > 12) {
-      errors.userName = "username cannot contain more than twelve characters!";
-    }
-    if (!values.firstName) {
-      errors.firstName = "First Name is required!";
-    }
-    if (!values.lastName) {
-      errors.lastName = "Last Name is required!";
-    }
-    if (!values.email) {
-      errors.email = "Email is required!";
-    } else if (!regexEmail.test(values.email)) {
-      errors.email = "Invalid format for E-mail!";
-    }
-    if (!values.pass) {
-      errors.pass = "Password is required!";
-    } else if (values.pass.length < 8) {
-      errors.pass = "password must contain at least eight characters!!";
-    } else if (!regexPwd.test(values.pass)) {
-      errors.pass =
-        "Password need to contain minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character";
-    }
-    if (!values.confirmPass) {
-      errors.confirmPass = "Confirm your password!";
-    } else if (!(values.confirmPass === values.pass)) {
-      errors.confirmPass = "Passwords must match!";
-    }
-    return errors;
-  };
+
+
   return (
     <div className="App">
       <div className="header">

@@ -85,4 +85,13 @@ form {
 .container p {
   color: red;
   width: 25vw;
-} 
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    padding: 0;
+  }
+  .element input {
+    width: 50vw;
+  }
+}
